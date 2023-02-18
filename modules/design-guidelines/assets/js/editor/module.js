@@ -12,6 +12,15 @@ class Module extends elementorModules.editor.utils.Module {
 		const helper = new EditorHelper();
 		$e.components.register( new ColorsComponent(helper, config) );
 		$e.components.register( new FontsComponent(helper, config) );
+
+		this.colorListener();
+	}
+
+	colorListener() {
+		window.addEventListener( 'elementor/global-color/show', ( e ) => {
+			console.log( e );
+			console.log( e.detail );
+		} );
 	}
 }
 
